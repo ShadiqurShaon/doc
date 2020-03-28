@@ -22,10 +22,21 @@ Route::get('hello',function(){
     return "This is a hello";
 })->middleware('verified');
 
-Route::group(['namespace' => 'Admin'], function () {
-    Route::get('/in',function(){
-        return "this is insede in";
-    });
+Route::group(['namespace' => 'Admin','middleware' => ['role:admin']], function () {
+    Route::get('adminall','AdminController@index');
+
+});
+
+Route::group(['namespace' => 'Doctor','middleware' => ['role:doctor']], function () {
+    Route::get('adminall2','DoctorController@index');
+});
+
+Route::group(['namespace'=>'Patient','middleware' => ['role:patient']],function(){
+    Route::get('adminall3','PatientController@index');
+});
+
+Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital']],function(){
+    Route::get('adminall4','HospitalController@index');
 });
 
 
