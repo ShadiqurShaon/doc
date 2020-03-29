@@ -39,7 +39,7 @@ Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital']],functio
     Route::get('adminall4','HospitalController@index');
 });
 
-
+Route::get('/admin', 'Admin\AdminController@index');
 
 
 // Route::get('')
