@@ -175,7 +175,7 @@
       </div>
 
       <!-- Sidebar Menu -->
-      @include('backend.include.menu')
+      @include('admin.sidebar')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

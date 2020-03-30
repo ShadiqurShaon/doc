@@ -39,7 +39,10 @@ Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital']],functio
     Route::get('hospital','HospitalController@index');
 });
 
-// Route::get('/admin', 'Admin\AdminController@index');
+Route::get('/admin', 'Admin\AdminController@index');
+Route::get('/doctor', 'Doctor\DoctorController@index');
+Route::get('/hospital', 'Hospital\HospitalController@index');
+Route::get('/patient', 'Patient\PatientController@index');
 
 
 // Route::get('')

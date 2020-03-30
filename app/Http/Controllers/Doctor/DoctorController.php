@@ -7,8 +7,15 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
+    public function __construct()
+    {
+
+    }
+    
     public function index()
     {
-        return "this is from doctor admin page";
+        
+        return view('doctor.index');
+        
     }
 }

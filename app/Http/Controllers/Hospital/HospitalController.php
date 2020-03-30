@@ -7,8 +7,15 @@ use App\Http\Controllers\Controller;
 
 class HospitalController extends Controller
 {
+    public function __construct()
+    {
+
+    }
+    
     public function index()
     {
-        return "this is inside hospital";
+        
+        return view('hospital.index');
+        
     }
 }
