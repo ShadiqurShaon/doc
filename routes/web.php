@@ -23,23 +23,23 @@ Route::get('hello',function(){
 })->middleware('verified');
 
 Route::group(['namespace' => 'Admin','middleware' => ['role:admin']], function () {
-    Route::get('adminall','AdminController@index');
+    Route::get('admin','AdminController@index');
 
 });
 
 Route::group(['namespace' => 'Doctor','middleware' => ['role:doctor']], function () {
-    Route::get('adminall2','DoctorController@index');
+    Route::get('doctor','DoctorController@index');
 });
 
 Route::group(['namespace'=>'Patient','middleware' => ['role:patient']],function(){
-    Route::get('adminall3','PatientController@index');
+    Route::get('patient','PatientController@index');
 });
 
 Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital']],function(){
-    Route::get('adminall4','HospitalController@index');
+    Route::get('hospital','HospitalController@index');
 });
 
-Route::get('/admin', 'Admin\AdminController@index');
+// Route::get('/admin', 'Admin\AdminController@index');
 
 
 // Route::get('')

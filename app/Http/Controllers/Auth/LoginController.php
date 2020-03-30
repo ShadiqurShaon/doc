@@ -27,8 +27,25 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/';
 
+    protected function redirectTo()
+    {   
+        // dd(Auth::user());
+        // return redirect('/');
+        if(Auth::user()->hasRole('doctor')){
+            return redirect('/doctor');
+        }
+        else if(Auth::user()->hasRole('patient')){
+            return redirect('/patient');
+        }
+        else if (Auth::user()->hasRole('hospital')){
+            return redirect('/hospital');
+        }
+        else if(Auth::user()->hasRole('admin')){
+            return redirect('admin');
+        }
+    }
     /**
      * Create a new controller instance.
      *

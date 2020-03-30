@@ -16,8 +16,21 @@ class TwoFactorController extends Controller
         if($request->input('2fa') == Auth::user()->token_2fa){            
             $user = Auth::user();
             $user->token_2fa_expiry = \Carbon\Carbon::now()->addMinutes(config('session.lifetime'));
-            $user->save();       
-            return redirect('/home');
+            $user->save(); 
+
+            if(Auth::user()->hasRole('doctor')){
+                return redirect('/doctor');
+            }
+            else if(Auth::user()->hasRole('patient')){
+                return redirect('/patient');
+            }
+            else if (Auth::user()->hasRole('hospital')){
+                return redirect('/hospital');
+            }
+            else if(Auth::user()->hasRole('admin')){
+                return redirect('admin');
+            }      
+            // return redirect('/home');
         } else {
             return redirect('/2fa')->with('message', 'Incorrect code.');
         }
