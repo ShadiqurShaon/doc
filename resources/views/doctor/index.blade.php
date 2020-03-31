@@ -18,7 +18,13 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    <section class="content">
+      <div class="center" style="text-align:center;color:red">
+      @if(Auth::check() && !Auth::user()->hasVerifiedEmail())
+        <p>Please verify your email address. An email containing verification instructions was sent to {{ Auth::user()->email }}.</p>
+      @endif
+    </div>
+    </section>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
