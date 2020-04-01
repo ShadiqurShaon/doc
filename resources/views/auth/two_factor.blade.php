@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Insert your Code') }}</div>
 
                 <div class="card-body">
-                <form role="form" method="POST" action="/2fa">
+                <form role="form" method="POST" action="{{route('2fa')}}">
                 {{ csrf_field() }}
                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <input id="2fa" type="text" class="form-control" name="2fa" placeholder="Enter the code you received here." required autofocus>

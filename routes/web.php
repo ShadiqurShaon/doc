@@ -29,8 +29,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/login/{title}','FrontendController@loginUser');
 });
 Auth::routes(['verify' => true]);
-Route::get('2fa', 'TwoFactorController@showTwoFactorForm');
-Route::post('2fa', 'TwoFactorController@verifyTwoFactor');
+Route::get('/2fa', 'TwoFactorController@showTwoFactorForm')->name('2fa');
+Route::post('/2fa', 'TwoFactorController@verifyTwoFactor')->name('2fa');
 Route::get('hello',function(){
     return "This is a hello";
 })->middleware('verified');
