@@ -41,6 +41,8 @@ Route::get('hello',function(){
 
 Route::group(['namespace' => 'Admin','middleware' => ['role:admin','auth']], function () {
     Route::get('admin','AdminController@index');
+    Route::get('area','AdminFirebaseController@index2')->name('area');
+    Route::get('setdoctor','AdminFirebaseController@numberOfPatient');
 
 });
 
