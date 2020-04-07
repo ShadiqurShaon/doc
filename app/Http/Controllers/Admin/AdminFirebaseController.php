@@ -43,8 +43,8 @@ class AdminFirebaseController extends Controller
    	{
    		$firestore = app('firebase.firestore');
    		$database = $firestore->database();
-   		$doctorRef = $database->collection('doctors')->document('AmitKumar');
-   		$doctorRef->set([
+   		$doctorRef = $database->collection('doctors');
+   		$doctorRef->add([
    			'active'=>false,
    			'dateOfBirth'=>'2/2/2020',
    			'district'=>'dhaka',
@@ -52,7 +52,7 @@ class AdminFirebaseController extends Controller
    			'doctorType'=>'general',
    			'email'=>'amit@gmail.com',
    			'gender'=>'Male',
-   			'name'=>'amit kumar',
+   			'name'=>'amit kumar2',
    			'online'=>true,
    			'photoUrl'=>'www.photo.com',
    			'price'=>300,
