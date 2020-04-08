@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\sendEmail;
+use Mail;
 
 class AdminDoctorController extends Controller
 {
@@ -58,9 +60,18 @@ class AdminDoctorController extends Controller
     	$firestore = app('firebase.firestore');
    		$db = $firestore->database();
    		$docRef = $db->collection('doctors')->document($id);
+      $snapsot = $docRef->snapshot();
+
    		$docRef->set([
    			'approve'=>true
    		],['merge' => true]);
+
+       $data = ['message' => 'This message is from hello doc','flag'=>true];
+       $send_to = $snapsot['email'];
+
+
+       Mail::to($send_to)->send(new sendEmail($data));
+
 
    		return "Update successfully";
 
