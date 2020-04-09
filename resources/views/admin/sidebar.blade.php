@@ -14,7 +14,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('/admin/doctor')}}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Doctor
@@ -32,7 +32,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('/admin/patient')}}" class="nav-link">
               <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Patient

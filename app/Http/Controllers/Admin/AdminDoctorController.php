@@ -11,7 +11,7 @@ class AdminDoctorController extends Controller
 {
     public function index()
     {
-    	return "the view page of doctor admin";
+    	return view('admin.adminDoctor');
     }
 
     public function docStatus($status_name)
@@ -104,7 +104,7 @@ class AdminDoctorController extends Controller
       return $snapsot->data();
     }
 
-    public function approveDoctorList(Request request)
+    public function approveDoctorList(Request $request)
     {
 
       $listofdoctor = $request->input('doctorlist');
@@ -119,7 +119,7 @@ class AdminDoctorController extends Controller
     }
 
 
-    public function rejectDoctorList(Request request)
+    public function rejectDoctorList(Request $request)
     {
         $listofdoctor = $request->input('doctorlist');
 

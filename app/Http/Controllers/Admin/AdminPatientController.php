@@ -7,6 +7,14 @@ use App\Http\Controllers\Controller;
 
 class AdminPatientController extends Controller
 {
+    public function index()
+    {
+      return view('admin.adminPatient');
+    }
+
+
+
+
     public function patientStatus($status)
     {
     	$firestore = app('firebase.firestore');

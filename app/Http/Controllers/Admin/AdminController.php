@@ -34,6 +34,13 @@ class AdminController extends Controller
    			$patient_count++;
    		}
 
+   		// $doctorsRef = $database->collection('doctors');
+   		$query = $docRefe->where('active','=',true);
+   		$active_doctors = $query->documents();
+   		$number_of_active_doctor = 0;
+   		foreach ($active_doctors as $key => $value) {
+   			$number_of_active_doctor++;
+   		}
    		
         return view('admin.index');
         
