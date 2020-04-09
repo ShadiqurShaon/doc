@@ -82,10 +82,54 @@ class AdminDoctorController extends Controller
     	$firestore = app('firebase.firestore');
     	$db = $firestore->database();
     	$docRef = $db->collection('doctors')->document($id);
+      $snapsot = $docRef->snapshot();
     	$docRef->set([
    			'approve'=>false
    		],['merge' => true]);
 
+      $data = ['message' => 'This message is from hello doc','flag'=>false];
+      $send_to = $snapsot['email'];
+
+      Mail::to($send_to)->send(new sendEmail($data));
     	return "update sucessfully";
+    }
+
+    public function doctorProfileById($id)
+    {
+      $firestore = app('firebase.firestore');
+      $db = $firestore->database();
+      $docRef = $db->collection('doctors')->document($id);
+      $snapsot = $docRef->snapshot();
+
+      return $snapsot->data();
+    }
+
+    public function approveDoctorList(Request request)
+    {
+
+      $listofdoctor = $request->input('doctorlist');
+
+      foreach ($listofdoctor as $key => $value) {
+        
+        $this->approveDoctor($value->doctorid);
+
+      }
+
+      return "All doctor update successfully";
+    }
+
+
+    public function rejectDoctorList(Request request)
+    {
+        $listofdoctor = $request->input('doctorlist');
+
+      foreach ($listofdoctor as $key => $value) {
+        
+        $this->rejectDoctor($value->doctorid);
+
+      }
+
+      return "All doctor update successfully";
+
     }
 }
