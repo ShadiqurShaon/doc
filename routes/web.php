@@ -42,13 +42,19 @@ Route::get('hello',function(){
 Route::group(['namespace' => 'Admin','middleware' => ['role:admin','auth']], function () {
     Route::get('admin','AdminController@index');
     Route::get('admin/doctor','AdminDoctorController@index')->name('/admin/doctor');
-    Route::get('admin/patient','AdminPatientController@index')->name('/admin/patient');
-
-
-
+    Route::get('admin/rejactDoctor/{id}','AdminDoctorController@rejectDoctor')->name('rejectdoctor');
     Route::get('admin/doctor/{status}','AdminDoctorController@docStatus');
-    Route::get('admin/rejactDoctor/{id}','AdminDoctorController@rejectDoctor');
     Route::get('admin/approveDocotr/{id}','AdminDoctorController@approveDoctor');
+    Route::get('admin/dprofile/{id}','AdminDoctorController@doctorProfileById');
+    // Route::get('admin/')
+
+    //patiet
+    Route::get('admin/patient','AdminPatientController@index')->name('/admin/patient');
+    Route::get('admin/patient/{status}','AdminPatientController@patientStatus')->name('patientstatus');
+    Route::get('admin/rejectPatient/{id}','AdminPatientController@rejectPatient');
+    Route::get('admin/approvePatient/{id}','AdminPatientController@approvePtient');
+
+
     Route::get('area','AdminFirebaseController@index2')->name('area');
     Route::get('setdoctor','AdminFirebaseController@setdoctors');
 

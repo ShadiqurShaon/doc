@@ -11,32 +11,60 @@ class AdminDoctorController extends Controller
 {
     public function index()
     {
+      $firestore = app('firebase.firestore');
+      $db = $firestore->database();
+      $doctorRef = $db->collection('doctors');
+
     	return view('admin.adminDoctor');
     }
 
     public function docStatus($status_name)
     {
+      // dd($status_name);
     	//this status_name should be approve or reject or pending
     	$firestore = app('firebase.firestore');
    		$db = $firestore->database();
    		$doctorRef = $db->collection('doctors');
-
-   		if ($status_name=='Approve'){
-   			$query = $doctorsRef->where('approve','=',true);
+   		if ($status_name=='approve'){
+   			$query = $doctorRef->where('approve','=',true);
    			$approveDOctor = $query->documents();
-   			return $approveDOctor;
+        $approveDoctor = array();
+        foreach ($approveDOctor as $doctor) {
+          if($doctor->exists()){
+            $data = $doctor->data();
+            if($data['approve']){
+              array_push($approveDoctor, $doctor->data());
+            }
+          }
+        }
+   			return view('admin.approveDoctor')->with('pending_doctor',$approveDoctor);
    			//return all approve doctor
    		}
-   		else if($status_name=='Reject'){
-   			$query = $doctorsRef->where('approve','=',false);
+   		else if($status_name=='reject'){
+   			$query = $doctorRef->where('approve','=',false);
    			$rejectDoctors = $query->documents();
-   			return $rejectDoctors;
+
+        $reject_doctor = array();
+        foreach ($rejectDoctors as $doctor) {
+          if($doctor->exists()){
+            $data = $doctor->data();
+            if($data['approve']==false){
+              array_push($reject_doctor, $doctor->data());
+            }
+          }
+        }
+
+
+        return view('admin.approveDoctor')->with('pending_doctor',$reject_doctor);
+
+   			// return $rejectDoctors;
    			//return all rejected docotr
 
    		}
    		else if($status_name == 'pending'){
    			$pending_doctor = array();
    			$allDoctor = $doctorRef->documents();
+
 	   		foreach ($allDoctor as $doctor) {
 	   			if($doctor->exists()){
 	   				$data = $doctor->data();
@@ -46,8 +74,9 @@ class AdminDoctorController extends Controller
 	   			}
 	   		}
 
+        // return $pending_doctor;
 
-	   		return $pending_doctor;
+	   		return view('admin.pendingdoctor')->with('pending_doctor',$pending_doctor);
 	   		//return pending docotr
    		}
 
