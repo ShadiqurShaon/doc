@@ -35,16 +35,10 @@ Route::get('hello',function(){
     return "This is a hello";
 })->middleware('verified');
 
-
-
-
-
 Route::group(['namespace' => 'Admin','middleware' => ['role:admin','auth']], function () {
     Route::get('admin','AdminController@index');
     Route::get('admin/doctor','AdminDoctorController@index')->name('/admin/doctor');
     Route::get('admin/patient','AdminPatientController@index')->name('/admin/patient');
-
-
 
     Route::get('admin/doctor/{status}','AdminDoctorController@docStatus');
     Route::get('admin/rejactDoctor/{id}','AdminDoctorController@rejectDoctor');
@@ -70,8 +64,6 @@ Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital','auth']],
 // Route::get('/doctor', 'Doctor\DoctorController@index');
 // Route::get('/hospital', 'Hospital\HospitalController@index');
 // Route::get('/patient', 'Patient\PatientController@index');
-
-
 // Route::get('')
 Route::get('/test',function() {
 

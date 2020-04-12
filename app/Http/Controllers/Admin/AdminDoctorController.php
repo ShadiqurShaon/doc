@@ -19,7 +19,7 @@ class AdminDoctorController extends Controller
     	//this status_name should be approve or reject or pending
     	$firestore = app('firebase.firestore');
    		$db = $firestore->database();
-   		$doctorRef = $db->collection('doctors');
+        $doctorRef = $db->collection('doctors');
 
    		if ($status_name=='Approve'){
    			$query = $doctorsRef->where('approve','=',true);
@@ -55,7 +55,7 @@ class AdminDoctorController extends Controller
 
 
     public function approveDoctor($id)
-    {	
+    {
 
     	$firestore = app('firebase.firestore');
    		$db = $firestore->database();
@@ -110,7 +110,7 @@ class AdminDoctorController extends Controller
       $listofdoctor = $request->input('doctorlist');
 
       foreach ($listofdoctor as $key => $value) {
-        
+
         $this->approveDoctor($value->doctorid);
 
       }
@@ -124,7 +124,7 @@ class AdminDoctorController extends Controller
         $listofdoctor = $request->input('doctorlist');
 
       foreach ($listofdoctor as $key => $value) {
-        
+
         $this->rejectDoctor($value->doctorid);
 
       }
