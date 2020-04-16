@@ -11,14 +11,14 @@ class AdminController extends Controller
     {
 
     }
-    
+
     public function index()
     {
-        
+
         $firestore = app('firebase.firestore');
    		$database = $firestore->database();
    		$docRefe = $database->collection('doctors');
-   		$patientRefe = $database->collection('patient');
+   		$patientRefe = $database->collection('users');
    		$doctors = $docRefe->documents();
    		$patients = $patientRefe->documents();
 
@@ -32,7 +32,9 @@ class AdminController extends Controller
    		$patient_count=0;
    		foreach ($patients as $key => $value) {
    			$patient_count++;
-   		}
+        }
+
+        $data['totalPatient'] = $patient_count;
 
    		// $doctorsRef = $database->collection('doctors');
    		$query = $docRefe->where('active','=',true);
@@ -40,9 +42,11 @@ class AdminController extends Controller
    		$number_of_active_doctor = 0;
    		foreach ($active_doctors as $key => $value) {
    			$number_of_active_doctor++;
-   		}
-   		
-        return view('admin.index');
-        
+        }
+
+        $data['activeDoctor'] = $number_of_active_doctor;
+
+        return view('admin.index')->with($data);
+
     }
 }

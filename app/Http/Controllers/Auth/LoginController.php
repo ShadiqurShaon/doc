@@ -30,8 +30,7 @@ class LoginController extends Controller
     // protected $redirectTo = '/';
 
     protected function redirectTo()
-    {   
-        // dd(Auth::user());
+    {
         // return redirect('/');
         if(Auth::user()->hasRole('doctor')){
             return redirect('/doctor');
@@ -57,13 +56,13 @@ class LoginController extends Controller
     }
 
     public function authenticated()
-    {   
+    {
         $user = Auth::user();
         $MailSend = new MailSendController();
         $otp = mt_rand(10000,99999);
         $user->token_2fa = $otp;
         $user->save();
-        
+
         $val = $MailSend->sendOtp($otp,$user->email);
         if ($val){
             return redirect('/2fa');

@@ -99,10 +99,10 @@
             </div>
         </div> --}}
 
-        <div class="row">
-            <div class="col-md-8" style="margin: 0 auto;padding: 45px;">
+        <div class="row row justify-content-center">
+            <div class="col-md-8" style="padding: 45px;">
                 <div class="card">
-                    <div class="card-header">{{ __($title.' Register') }}</div>
+                    <div class="card-header"><?php echo ucfirst($title);?> Register</div>
                     <div class="card-body">
                         @if($title == 'patient')<p class="mb-2"><strong>Become a patient</strong></p>
                         @elseif($title == 'doctor')<p class="mb-2"><strong>Become a doctor</strong></p>

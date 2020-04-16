@@ -35,7 +35,7 @@ class AdminFirebaseController extends Controller
    		// 	print_r('----------------------------------------------------------\r\n');
    		// }
    		dd($documents);
-   		
+
 
    	}
 
@@ -59,8 +59,6 @@ class AdminFirebaseController extends Controller
    			'regNo'=>'00011',
    			'totalCount'=>2,
    			'totalRating'=>8
-
-
    		]);
    		dd('Doctor add successfully');
 
@@ -74,7 +72,7 @@ class AdminFirebaseController extends Controller
    		$doctorsRef = $database->collection('doctors');
    		$query = $doctorsRef->where('active','=',true);
    		$snapshot = $query->documents();
-   		dd($snapshot); 
+   		dd($snapshot);
    	}
 
    	public function editDoctor()
@@ -136,7 +134,7 @@ class AdminFirebaseController extends Controller
 	   			}else{
 	   				$doctor_gender['Female']++;
 	   			}
-	   			
+
    			}
    		}
    			print_r("<pre>");
@@ -163,6 +161,6 @@ class AdminFirebaseController extends Controller
    		print_r("<pre>");
 
    		return $total_patient;
-   		
+
    	}
 }

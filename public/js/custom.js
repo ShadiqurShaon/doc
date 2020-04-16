@@ -4,3 +4,9 @@
 //         $('.ticker__item').focus();
 //     });
 // });
+
+$(document).ready(function(){
+    $('.table').dataTable();
+});
+
+

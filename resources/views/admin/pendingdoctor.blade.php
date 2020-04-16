@@ -48,7 +48,7 @@
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart"
                        style="position: relative; height: 300px;">
-                         
+
                        <table class="table">
 						  <thead>
 						    <tr>
@@ -61,11 +61,11 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <?php 
+						    <?php
 
-                foreach ($pending_doctor as $key => $value) 
-                 
-              { 
+                foreach ($pending_doctor as $key => $value)
+
+              {
 
                 ?>
 						    <tr id="{{($value['uid'])?trim($value['uid']):0}}">
@@ -77,7 +77,7 @@
 						      	<!-- <a href="{{url('admin/dprofile',$key)}}">View profile</a> -->
                     <!-- <a href="#" id="viewprofile" >View profile</a> -->
                         <button type="button" class="btn btn-primary" onclick="showprofile({{'"'.$value['uid'].'"'}})">Profile</button>
-						      	
+
                     <button type="button" class="btn btn-success" onclick="approve({{'"'.$value['uid'].'"'}})">Approve</button>
 
 						      	<button type="button" class="btn btn-warning" onclick="reject({{'"'.$value['uid'].'"'}})">Reject</button>
@@ -114,7 +114,7 @@
   <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-      
+
         <!-- Modal Header -->
         <div class="modal-header">
           <div >
@@ -122,7 +122,7 @@
        </div>
           <button type="button" class="close" data-dismiss="modal">×</button>
         </div>
-        
+
         <!-- Modal body -->
         <div class="modal-body">
                 <div style="text-align: center;margin-bottom:10px;">
@@ -152,19 +152,19 @@
                           <th id="distric" scope="col">Dhaka</th>
                         </tr>
                       </thead>
-                      
+
               </table>
         </div>
-        
+
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
-        
+
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <script>
@@ -213,9 +213,9 @@ toastr.info('Doctor Registation Rejected!!');
 
 
 $(document).ready(function(){
-  
+
   $("#myBtn").click(function(){
-   
+
   });
 });
 </script>
@@ -239,6 +239,6 @@ $(document).ready(function(){
           		</section>
           	</div>
       </div>
-     </section> 
+     </section>
 
-@endsection 
+@endsection

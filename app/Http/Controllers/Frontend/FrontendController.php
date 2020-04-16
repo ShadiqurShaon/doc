@@ -27,15 +27,49 @@ class FrontendController extends Controller
         return view('frontend.profile',$this->data);
     }
 
+    public function about()
+    {
+        return view('frontend.about-us');
+    }
+
     public function privacy()
     {
         return view('frontend.privacy');
     }
 
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
+
+    public function patientprivacy()
+    {
+        return view('frontend.patientprivacy');
+    }
+
+    public function healthinfo()
+    {
+        return view('frontend.healthinfo');
+    }
+
+    public function appsprivacy()
+    {
+        return view('frontend.apps-privacy');
+    }
+
+
     public function help($title = '')
     {
         $this->data['title'] = $title;
         return view('frontend.help',$this->data);
+    }
+
+    public function registerArea(){
+        return view('frontend.registerpage');
+    }
+
+    public function loginArea(){
+        return view('frontend.loginpage');
     }
 
     public function loginUser($title = ''){

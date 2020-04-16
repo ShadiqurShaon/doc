@@ -32,8 +32,8 @@ class RegisterController extends Controller
     protected $redirectTo = '/';
 
     protected function redirectTo()
-    {   
-        // dd(auth()->user()->hasRole('doctor'));
+    {
+        //dd(auth()->user()->hasRole('doctor'));
         // return redirect('/');
         if(auth()->user()->hasRole('doctor')){
             return '/doctor';
@@ -81,7 +81,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {  
+    {
         $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],

@@ -27,7 +27,13 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+  {{-- DataTables --}}
+    <link rel="stylesheet" href="{{ asset('backend/plugins/datatables/jquery.dataTables.css') }}"></link>
+  {{-- End --}}
 
+  {{-- custom css --}}
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+  {{-- end --}}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -227,6 +233,14 @@
 <!-- jQuery -->
 <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
+
+
+  {{-- custom js --}}
+  <script src="{{asset('js/custom.js')}}"></script>
+{{-- DataTables --}}
+<script src="{{ asset('backend/plugins/datatables/jquery.dataTables.js') }}"></script>
+{{-- End --}}
+
 <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
