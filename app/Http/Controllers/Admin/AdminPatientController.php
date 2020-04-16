@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Mail;\
 
 class AdminPatientController extends Controller
 {
@@ -15,7 +16,7 @@ class AdminPatientController extends Controller
 
 
 
-    public function patientStatus($status)
+    public function patientStatus($status_name)
     {
     	$firestore = app('firebase.firestore');
     	$db = $firestore->database();
@@ -42,13 +43,13 @@ class AdminPatientController extends Controller
 	   			if($patient->exists()){
 	   				$data = $patient->data();
 	   				if(!array_key_exists('approve',$data)){
-	   					array_push($pending_patient, $doctor->data());
+	   					array_push($pending_patient, $patient->data());
 	   				}
 	   			}
 	   		}
 
 
-	   		return $pending_patient;
+	   		return view('admin.pendingPatient')->with('pending_doctor',$pending_patient); 
 	   		//return pending docotr
    		} 
     }

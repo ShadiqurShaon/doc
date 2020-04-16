@@ -18,13 +18,33 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+// Route for frontend
+
+Route::get('/service/{title}', 'frontend\FrontendController@services');
+Route::get('/about', 'frontend\FrontendController@about');
+Route::get('/privacy','frontend\FrontendController@privacy');
+Route::get('/appsprivacy','frontend\FrontendController@appsprivacy');
+Route::get('/privacy/patientprivacy','frontend\FrontendController@patientprivacy');
+Route::get('/privacy/healthinfo','frontend\FrontendController@healthinfo');
+Route::get('/help/{title}','frontend\FrontendController@help');
+Route::get('/contact','frontend\FrontendController@contact');
+
+Route::get('/registerarea','frontend\FrontendController@registerArea');
+Route::get('/loginarea','frontend\FrontendController@loginArea');
+
+
+// End
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/','FrontendController@index');
     Route::get('/service/{title}', 'FrontendController@services');
     Route::get('/profile/{title}', 'FrontendController@profile');
-    Route::get('/privacy','FrontendController@privacy');
-    Route::get('/help/{title}','FrontendController@help');
+    // Route::get('/privacy','FrontendController@privacy');
+    // Route::get('/help/{title}','FrontendController@help');
     Route::get('/register/{title}','FrontendController@registerUser');
     Route::get('/login/{title}','FrontendController@loginUser');
 });
@@ -38,11 +58,20 @@ Route::get('hello',function(){
 Route::group(['namespace' => 'Admin','middleware' => ['role:admin','auth']], function () {
     Route::get('admin','AdminController@index');
     Route::get('admin/doctor','AdminDoctorController@index')->name('/admin/doctor');
-    Route::get('admin/patient','AdminPatientController@index')->name('/admin/patient');
-
+    Route::get('admin/rejactDoctor/{id}','AdminDoctorController@rejectDoctor')->name('rejectdoctor');
     Route::get('admin/doctor/{status}','AdminDoctorController@docStatus');
-    Route::get('admin/rejactDoctor/{id}','AdminDoctorController@rejectDoctor');
     Route::get('admin/approveDocotr/{id}','AdminDoctorController@approveDoctor');
+    Route::get('admin/dprofile/{id}','AdminDoctorController@doctorProfileById');
+    // Route::get('admin/')
+
+    //patiet
+    Route::get('admin/patient','AdminPatientController@index')->name('/admin/patient');
+    Route::get('admin/patient/{status}','AdminPatientController@patientStatus')->name('patientstatus');
+    Route::get('admin/rejectPatient/{id}','AdminPatientController@rejectPatient');
+    Route::get('admin/approvePatient/{id}','AdminPatientController@approvePtient');
+    Route::get('admin/pprofile/{id}','AdminPatientController@patientProfileById');
+
+
     Route::get('area','AdminFirebaseController@index2')->name('area');
     Route::get('setdoctor','AdminFirebaseController@setdoctors');
 
