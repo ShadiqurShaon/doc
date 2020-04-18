@@ -143,7 +143,7 @@
                     <label><i  class="fa fa-certificate"></i> Status :</label>
                     @if(isset($doctorProfile['approve']) == true) <span class="badge badge-success">Approved</span> @endif
                     @if(isset($doctorProfile['pending'])  == true) <span class="badge badge-pending">Pending</span> @endif
-                    @if(isset($doctorProfile['reject'])  == true) <span class="badge badge-danger">Rejected</span> @endif
+                    @if(isset($doctorProfile['approve'])  == false) <span class="badge badge-danger">Rejected</span> @endif
                 </div>
             </div>
 		</div>
@@ -152,5 +152,9 @@
             </div>
     </div>
 
+
+    @php
+    dd($doctorProfile);
+    @endphp
 
 @endsection

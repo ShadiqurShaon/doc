@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\sendEmail;
 use Mail;
 
 class AdminPatientController extends Controller
@@ -24,8 +25,6 @@ class AdminPatientController extends Controller
             array_push($data['usersList'],$user->data());
             $data['totalUser']++;
         }
-
-        // dd($data['users']);
 
         $data['pendingUser'] = array() ;
         foreach($data['users'] as $key=>$user){
@@ -111,11 +110,12 @@ class AdminPatientController extends Controller
        $data = ['message' => 'This message is from hello doc','flag'=>true];
        $send_to = $snapsot['email'];
 
-
        Mail::to($send_to)->send(new sendEmail($data));
 
+       //return "Update successfully";
 
-   		return "Update successfully";
+       return redirect()->back();
+
     }
 
     public function rejectPatient($id)
@@ -123,8 +123,8 @@ class AdminPatientController extends Controller
     	$firestore = app('firebase.firestore');
     	$db = $firestore->database();
     	$patientRef = $db->collection('users')->document($id);
-      $snapsot = $patientRef->snapshot();
-    	$docRef->set([
+        $snapsot = $patientRef->snapshot();
+    	$patientRef->set([
    			'approve'=>false
    		],['merge' => true]);
 
@@ -132,7 +132,8 @@ class AdminPatientController extends Controller
       $send_to = $snapsot['email'];
 
       Mail::to($send_to)->send(new sendEmail($data));
-    	return "update sucessfully";
+      //return "update sucessfully";
+      return redirect()->back();
     }
 
 

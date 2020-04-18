@@ -139,8 +139,8 @@ class AdminDoctorController extends Controller
 
        Mail::to($send_to)->send(new sendEmail($data));
 
-
-   		return "Update successfully";
+       //return "Update successfully";
+       return redirect()->back();
 
     }
 
@@ -158,7 +158,8 @@ class AdminDoctorController extends Controller
       $send_to = $snapsot['email'];
 
       Mail::to($send_to)->send(new sendEmail($data));
-    	return "update sucessfully";
+      //return "update sucessfully";
+      return redirect()->back();
     }
 
     public function doctorProfileById($id)

@@ -102,3 +102,24 @@
     background: #fff;
     min-height: 460px;
   }
+
+  nav.main-header.navbar.navbar-expand.navbar-dark.navbar-primary{
+    background-color:#033d72 !important;
+  }
+
+  .earning-bar{
+    background-color:#033d72 !important;
+    color: #fff;
+  }
+
+  a.earning-bar.btn.btn-default:hover{
+      color: #fff;
+  }
+
+  .btn-group.w-100.mb-2{
+      margin-bottom: 0px !important;
+  }
+
+  .earning-card{
+      background-color: #c0dee5;
+  }

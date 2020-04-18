@@ -149,9 +149,11 @@
                                                     <td>@if(isset($item['email'])) {{$item['email']}} @else N/A  @endif</td>
                                                     <td>
                                                         @if(isset($item['uid']))
+
                                                             <a class="btn btn-sm btn-primary" href="{{url('admin/pprofile/'.trim($item['uid']))}}">View profile</a>
-                                                            <a class="btn  btn-sm btn-success" href="{{url('admin/approveDocotr/'.trim($item['uid']))}}">Approve</a>
-                                                            <a class="btn  btn-sm btn-danger" href="{{url('admin/rejactUser/'.trim($item['uid']))}}">Reject</a>
+                                                            <a class="btn  btn-sm btn-success" href="{{url('admin/approvePatient/'.trim($item['uid']))}}">Approve</a>
+                                                            <a class="btn  btn-sm btn-danger" href="{{url('admin/rejectPatient/'.trim($item['uid']))}}">Reject</a>
+
                                                         @else
                                                         <a class="btn btn-sm btn-primary" href="#">View profile</a>
                                                         <a class="btn btn-sm btn-success btn-disabled" href="#">Approve</a>
@@ -177,7 +179,7 @@
 
 <script>
     function approve(id){
-
+        alert('Hello');
         $.ajax({url: "http://localhost:8000/admin/approvePatient/"+id.trim(), success: function(result){
         toastr.info('patient approve successfully!!');
         rem = '#'+id.trim();

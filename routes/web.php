@@ -90,9 +90,9 @@ Route::group(['namespace'=>'Hospital','middleware' => ['role:hospital','auth']],
 });
 
 // Route::get('/admin', 'Admin\AdminController@index');
-// Route::get('/doctor', 'Doctor\DoctorController@index');
+Route::get('/doctor', 'Doctor\DoctorController@index');
 // Route::get('/hospital', 'Hospital\HospitalController@index');
-// Route::get('/patient', 'Patient\PatientController@index');
+Route::get('/patient', 'Patient\PatientController@index');
 // Route::get('')
 Route::get('/test',function() {
 

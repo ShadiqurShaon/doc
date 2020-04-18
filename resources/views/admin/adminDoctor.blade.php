@@ -151,12 +151,12 @@
                                                     <td>
                                                         @if(isset($item['uid']))
                                                             <a class="btn btn-sm btn-primary" href="{{url('admin/dprofile/'.trim($item['uid']))}}">View profile</a>
-                                                            <a class="btn  btn-sm btn-success" href="{{url('admin/approveDocotr/'.trim($item['uid']))}}">Approve</a>
-                                                            <a class="btn  btn-sm btn-danger" href="{{url('admin/rejactDoctor/'.trim($item['uid']))}}">Reject</a>
+                                                            <a @if(isset($item['approve']) && $item['approve'] == true) class="btn  btn-sm btn-success disabled"; @else class="btn  btn-sm btn-success"; @endif  href="{{url('admin/approveDocotr/'.trim($item['uid']))}}">Approve</a>
+                                                            <a test="{{$item['approve']}}" @if(isset($item['approve']) && $item['approve'] == false) class="btn  btn-sm btn-danger disabled"; @else class="btn  btn-sm btn-danger"; @endif href="{{url('admin/rejactDoctor/'.trim($item['uid']))}}">Reject</a>
                                                         @else
-                                                        <a class="btn btn-sm btn-primary" href="#">View profile</a>
-                                                        <a class="btn btn-sm btn-success btn-disabled" href="#">Approve</a>
-                                                        <a class="btn btn-sm btn-danger btn-disabled" href="#">Reject</a>
+                                                        <a class="btn btn-sm btn-primary disabled" href="#">View profile</a>
+                                                        <a class="btn btn-sm btn-success disabled" href="#">Approve</a>
+                                                        <a class="btn btn-sm btn-danger  disabled" href="#">Reject</a>
                                                         @endif
                                                     </td>
                                                 </tr>

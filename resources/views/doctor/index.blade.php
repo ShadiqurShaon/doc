@@ -34,25 +34,26 @@
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">
             <!-- TO DO List -->
-            <div class="card">
+            <div class="card  earning-card">
               <!-- /.card-header -->
-              <div class="">
+              <div class="earning-reports">
                   <div class="btn-group w-100 mb-2">
-                    <a class="btn btn-primary active" href="javascript:void(0)" data-filter="all"> Weekly Earnings </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> Statements </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> 01 Jun </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> 02 Jun </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> 03 Jun </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> 04 Jun </a>
-                    <a class="btn btn-primary" href="javascript:void(0)" data-filter="1"> 05 Jun </a>
-                    
+                    <a class="earning-bar btn btn-default active" href="javascript:void(0)" data-filter="all"> Weekly Earnings </a>
+                    <a class="earning-bar btn btn-default" href="javascript:void(0)" data-filter="1"> Statements </a>
+                    <a class="btn btn-default">Previous</a>
+                    <a class="btn btn-default" href="javascript:void(0)" data-filter="1"> 01 Jun </a>
+                    <a class="btn btn-default" href="javascript:void(0)" data-filter="1"> 02 Jun </a>
+                    <a class="btn btn-default" href="javascript:void(0)" data-filter="1"> 03 Jun </a>
+                    <a class="btn btn-default" href="javascript:void(0)" data-filter="1"> 04 Jun </a>
+                    <a class="btn btn-default" href="javascript:void(0)" data-filter="1"> 05 Jun </a>
+
                   </div>
                   <div style="padding: 50px 15px">
                     <h3>Total Earning</h3>
                     <h2><b>$50.00</b></h2>
                   </div>
                   <div style="padding:0 15px; border-top: 1px solid #ddd">
-                    
+
                     <div class="row">
                         <div class="col-md-4" style="border-right: 1px solid #ddd">
                           <h4>0</h4>
@@ -67,7 +68,7 @@
               </div>
               <a class="btn btn-info active text-left" href="javascript:void(0)" data-filter="all"> Weekly Earnings </a>
               <!-- /.card-body -->
-              
+
             </div>
             <!-- /.card -->
           </section>
@@ -75,16 +76,21 @@
           <section class="col-lg-12 connectedSortable">
             <!-- TO DO List -->
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
-                  Bank Account Details
-                </h3>
+              <div class="row card-header">
+                <div class="col-6">
+                  <h3 class="card-title">
+                    <i class="ion ion-clipboard mr-1"></i>
+                    Bank Account Details
+                  </h3>
+                </div>
+                <div class="col-6">
+                <h5 class="alert-info col-4 text-center">Weekly Percut</h5>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <ul class="todo-list" data-widget="todo-list" style="width: 50%; float: left;">
-                  
+
                   <li>
                     <span class="text">Name  of Account Holder</span>
                   </li>
@@ -116,10 +122,10 @@
                     <i class="nav-icon fas fa-book mr-1"></i>
                     <span class="text">------------------</span>
                   </li>
-                  
+
                 </ul>
                 <ul class="todo-list" data-widget="todo-list" style="width: 50%; float: left;">
-                  
+
                   <li>
                     <span class="text">Routing Number</span>
                   </li>
@@ -151,7 +157,7 @@
                     <i class="nav-icon fas fa-book mr-1"></i>
                     <span class="text">------------------</span>
                   </li>
-                  
+
                 </ul>
               </div>
               <!-- /.card-body -->
@@ -167,4 +173,4 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-     @endsection 
+     @endsection
